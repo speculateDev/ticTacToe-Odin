@@ -4,6 +4,7 @@ const symbolsBox = document.querySelector('.modal__symbol-box');
 const difficultyBox = document.querySelector('.modal__difficulty-box');
 const headerTitle = document.querySelector('.header__turn');
 const overEl = document.querySelector('.over');
+const overText = overEl.querySelector('.over__text');
 
 const modal1 = document.querySelector('.modal__1st-step');
 const modal2 = document.querySelector('.modal__2nd-step');
@@ -306,6 +307,10 @@ const Gamelogic = (() => {
     currentPlayer = player1 = player2 = vsType = undefined;
     header.hidden = true;
     container.hidden = true;
+    modalBot.hidden = true;
+    modalPerson.hidden = true;
+    overEl.hidden = true;
+    overText.textContent = '';
     modal1.hidden = false;
     returnBtn.classList.add('hidden');
   };
