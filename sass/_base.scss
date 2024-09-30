@@ -1,0 +1,35 @@
+$color-primary: #222c47;
+$color-primary-light: #3c4b68;
+$color-primary-light-1: #a2aed6;
+$bg-color: #384959;
+
+$color-secondary: #3f7ed6;
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+  user-select: none;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+body {
+  background-color: $color-primary;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 35rem;
+  color: #fff;
+  margin: 0 auto;
+  font-size: 2rem;
+  text-align: center;
+  height: 100vh;
+}

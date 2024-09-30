@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="img/odin-icon.svg" type="image/x-icon" />
+    <script defer src="script.js"></script>
+    <title>Odin || tic-tac-toe</title>
+  </head>
+  <body>
+    <header class="header" hidden>
+      <div class="header__scores-box" data-score1="1">
+        <div class="header__score">
+          <h3 class="header__symbol">X</h3>
+          <span class="header__player">You:</span>
+          <span class="header__val">0</span>
+        </div>
+        <div class="header__score" data-score1="2">
+          <h3 class="header__symbol">O</h3>
+          <span class="header__player">Bot:</span>
+          <span class="header__val">0</span>
+        </div>
+      </div>
+      <h2 class="header__turn">Your turn</h2>
+    </header>
+
+    <div class="container" hidden>
+      <main class="board">
+        <div class="board__cell board__row-1" data-index="0"><p></p></div>
+        <div class="board__cell board__row-1" data-index="1"><p></p></div>
+        <div class="board__cell board__row-1" data-index="2"><p></p></div>
+        <div class="board__cell" data-index="3"><p></p></div>
+        <div class="board__cell" data-index="4"><p></p></div>
+        <div class="board__cell" data-index="5"><p></p></div>
+        <div class="board__cell board__row-3" data-index="6"><p></p></div>
+        <div class="board__cell board__row-3" data-index="7"><p></p></div>
+        <div class="board__cell board__row-3" data-index="8"><p></p></div>
+      </main>
+    </div>
+
+    <div class="modal">
+      <div class="modal__step modal__1st-step">
+        <label class="modal__label">Choose your opponent:</label>
+
+        <div class="modal__opponent mb-md">
+          <button class="modal__btn modal__btn-active">
+            <svg class="modal__icon">
+              <use href="./img/icons.svg#icon-robot"></use>
+            </svg>
+            <span>Bot</span>
+          </button>
+
+          <button class="modal__btn">
+            <svg class="modal__icon">
+              <use href="./img/icons.svg#icon-person"></use>
+            </svg>
+            <span>Person</span>
+          </button>
+        </div>
+
+        <div class="modal__symbols mb-md">
+          <label for="symbol" class="modal__label">Choose your sign:</label>
+          <div class="modal__symbol-box">
+            <button class="modal__symbol modal__symbol-active">X</button>
+            <button class="modal__symbol">O</button>
+          </div>
+        </div>
+
+        <div class="modal__name">
+          <label for="name" class="modal__label">Enter Your name:</label>
+          <input id="name" type="text" class="modal__input mb-md" value="You" />
+
+          <div class="fx-center">
+            <button id="submit-1" class="modal__submit">
+              Next
+              <span>&rarr;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal__step modal__2nd-step" hidden>
+        <div class="modal__bot" hidden>
+          <label class="modal__label mb-md">Choose a difficulty:</label>
+
+          <div class="modal__difficulty-box mb-md">
+            <button class="modal__btn modal__btn-active">easy</button>
+            <button class="modal__btn">medium</button>
+          </div>
+        </div>
+
+        <div class="modal__person" hidden>
+          <label for="name2" class="modal__label">Choose a name for player "2":</label>
+          <input id="name2" type="text" class="modal__input mb-md" value="Player 2" />
+        </div>
+
+        <div class="fx-center">
+          <button id="submit-2" class="modal__submit">
+            Next
+            <span>&rarr;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="over" hidden>
+      <div class="over-box">
+        <h1 class="over__text"></h1>
+        <div class="fx-center">
+          <button class="modal__submit continue__btn">Continue <span>&rarr;</span></button>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-return">
+      <svg class="btn__icon">
+        <use href="./img/icons.svg#icon-return"></use>
+      </svg>
+    </button>
+  </body>
+</html>

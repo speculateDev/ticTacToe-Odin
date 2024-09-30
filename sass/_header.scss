@@ -1,0 +1,75 @@
+.header {
+  color: #fff;
+  padding: 2rem 0;
+
+  &__scores-box {
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 2rem;
+    font-family: sans-serif;
+    text-align: left;
+  }
+
+  &__score {
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 2.5rem;
+    background-color: $color-primary-light;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid $color-primary;
+    box-shadow: 0 1rem 2rem rgba($color: #000000, $alpha: 0.3);
+    min-width: 15rem;
+
+    &-active {
+      animation: 0.8s ease-out infinite infiniteY;
+    }
+  }
+
+  &__symbol {
+    flex: 0 0 100%;
+  }
+
+  &__player {
+    margin-right: auto;
+    font-weight: 700;
+  }
+
+  &__turn {
+    font-family: 'Pixelify Sans';
+    font-size: 7rem;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.infiniteY {
+  animation: 0.8s linear infinite infinteY;
+}
+@keyframes infiniteY {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+    box-shadow: 0 2rem 2rem rgba($color: #000000, $alpha: 0.5);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}

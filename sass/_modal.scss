@@ -1,0 +1,191 @@
+.modal {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  font-family: 'Pixelify Sans';
+
+  &__step {
+    min-width: 60rem;
+    position: fixed;
+    padding: 2rem 4rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $color-primary-light;
+    box-shadow: 0 1rem 2rem #000;
+    border-radius: 12px;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 3rem;
+    font-weight: 700;
+    color: $color-primary-light-1;
+  }
+
+  &__opponent {
+    display: flex;
+    background-color: $color-primary;
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  &__btn {
+    font-family: inherit;
+    flex: 0 0 50%;
+    display: flex;
+    padding: 1rem 2rem;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    cursor: pointer;
+    background-color: $color-primary;
+    border-radius: 5px;
+    border: none;
+    color: $color-primary-light-1;
+    outline: none;
+    font-size: 3rem;
+    transition: all 0.5s ease-out;
+
+    &-active {
+      background-color: $color-primary-light-1;
+      color: $color-primary;
+    }
+
+    span {
+      margin-top: 0.2rem;
+    }
+  }
+
+  &__icon {
+    height: 4rem;
+    width: 4rem;
+    fill: $color-primary-light-1;
+  }
+
+  // Symbols
+  &__symbol-box {
+    display: flex;
+    background-color: $color-primary;
+    border-radius: 12px;
+    padding: 1rem;
+  }
+
+  &__symbol {
+    background-color: $color-primary;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 3rem;
+    border: none;
+    display: flex;
+    flex: 0 0 50%;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    color: $color-primary-light-1;
+    transition: all 0.5s ease-out;
+
+    &-active {
+      background-color: $color-primary-light-1;
+      color: $color-primary;
+    }
+  }
+
+  // Name
+  &__input {
+    display: block;
+    font-family: inherit;
+    font-size: 3rem;
+    background: none;
+    border: 5px solid rgba($color: $color-primary-light-1, $alpha: 0.5);
+    border-radius: 12px;
+    padding: 0.5rem 1rem;
+    outline: none;
+    color: $color-primary-light-1;
+    width: 100%;
+    transition: all 0.2s;
+
+    &:focus {
+      border-color: $color-primary;
+    }
+  }
+
+  // Submit
+  &__submit {
+    background-color: $color-primary-light-1;
+    border: $bg-color;
+    font-family: inherit;
+    font-size: 3rem;
+    padding: 1.5rem 4rem;
+    border-radius: 5px;
+    color: $color-primary;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    span {
+      color: $color-primary;
+      font-size: 5rem;
+      line-height: 0.5;
+      margin-left: 0.5rem;
+      transition: all 0.2s;
+    }
+
+    &:hover span {
+      margin-left: 2rem;
+    }
+
+    &:active {
+      transform: scale(0.9);
+    }
+
+    &:hover {
+      filter: brightness(0.8);
+    }
+  }
+
+  // Step 2
+  &__difficulty-box {
+    display: flex;
+    background-color: $color-primary;
+    padding: 1rem;
+    border-radius: 12px;
+  }
+}
+
+.modal__btn-active .modal__icon {
+  fill: $color-primary;
+}
+
+// GameOver
+.over {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba($color: #000, $alpha: 0.5);
+  backdrop-filter: blur(10px);
+
+  &-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 60rem;
+    border-radius: 12px;
+    font-family: 'Caveat Brush';
+    color: #fff;
+  }
+
+  &__text {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-family: 'Pixelify Sans';
+    text-align: center;
+    font-size: 8rem;
+    margin-bottom: 2rem;
+  }
+}

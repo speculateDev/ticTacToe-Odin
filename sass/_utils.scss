@@ -1,0 +1,52 @@
+.btn-return {
+  display: none;
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
+  background: $color-primary-light;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 1rem 3rem;
+  border-radius: 10rem;
+  align-items: center;
+  z-index: 10;
+  justify-content: center;
+  transition: all 0.2s;
+
+  .btn__icon {
+    fill: #fff;
+    height: 4rem;
+    width: 4rem;
+  }
+
+  &:hover {
+    filter: brightness(1.2);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.board__cell.non-hover {
+  cursor: default;
+
+  &::after {
+    display: none;
+  }
+}
+
+.mb-md {
+  margin-bottom: 3rem;
+}
+
+.fx-center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.clrBlue {
+  color: $color-secondary;
+}
