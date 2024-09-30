@@ -308,6 +308,7 @@ const Gamelogic = (() => {
     header.hidden = true;
     container.hidden = true;
     modal1.hidden = false;
+    returnBtn.style.display = 'none';
   };
 
   const nextRound = () => {
