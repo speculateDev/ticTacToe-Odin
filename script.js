@@ -80,7 +80,7 @@ submit2.addEventListener('click', () => {
   modal2.hidden = true;
   container.hidden = false;
   header.hidden = false;
-  returnBtn.style.display = 'flex';
+  returnBtn.classList.remove('hidden');
 
   headers[0].querySelector('.header__symbol').textContent = player1.symbol;
   headers[1].querySelector('.header__symbol').textContent = player2.symbol;
@@ -258,7 +258,6 @@ const Gamelogic = (() => {
   };
 
   const switchPlayer = () => {
-    console.log('switeched');
     currentPlayer = currentPlayer === player1 ? player2 : player1;
   };
 
@@ -308,7 +307,7 @@ const Gamelogic = (() => {
     header.hidden = true;
     container.hidden = true;
     modal1.hidden = false;
-    returnBtn.style.display = 'none';
+    returnBtn.classList.add('hidden');
   };
 
   const nextRound = () => {
