@@ -51,7 +51,7 @@ submit1.addEventListener('click', () => {
   const sign = symbolsBox.querySelector('.modal__symbol-active').textContent.toUpperCase();
   const name = document.querySelector('.modal__input').value;
 
-  player1 = Player(name, sign);
+  player1 = Player(name ? name : 'You', sign);
 
   // Update DOM
   if (opponent === 'Bot') {
@@ -71,10 +71,10 @@ submit2.addEventListener('click', () => {
 
   if (vsType === 'bot') {
     const difficulty = difficultyBox.querySelector('.modal__btn-active').textContent;
-    player2 = Ai('Bot', symbol, 'easy');
+    player2 = Ai('Bot', symbol, difficulty);
   } else {
     const name = document.getElementById('name2').value;
-    player2 = Player(name, symbol);
+    player2 = Player(name ? name : 'Player 2', symbol);
   }
 
   // Update Dom
@@ -122,17 +122,22 @@ const Player = (name, symbol) => {
 const Ai = (name, symbol, difficulty) => {
   let aiMove;
 
+  const indexGenerate = () => {
+    const board = GameBoard.getBoard();
+
+    // Collect the indexes of empty cells
+    const emptyIndexes = board
+      .map((cell, i) => (!cell ? i : null))
+      .filter((val) => val !== null);
+
+    // Pick a random index of the prev arr
+    return emptyIndexes[Math.floor(Math.random() * emptyIndexes.length)];
+  };
+
   const setAiMove = () => {
     if (difficulty === 'easy') {
       aiMove = async function () {
-        // Collect the indexes of empty cells
-        const emptyIndexes = GameBoard.getBoard()
-          .map((symbol, i) => (!symbol ? i : null))
-          .filter((val) => val !== null);
-
-        // Pick a random index of the prev arr
-        const randomIndex = emptyIndexes[Math.floor(emptyIndexes.length * Math.random())];
-
+        const randomIndex = indexGenerate();
         await Gamelogic.sleep(700);
         // Update DOM
         const cell = boardEl.querySelector(`.board__cell[data-index="${randomIndex}"]`);
@@ -140,6 +145,44 @@ const Ai = (name, symbol, difficulty) => {
 
         // Update internal Data
         Gamelogic.playMove(randomIndex);
+      };
+    }
+
+    if (difficulty === 'medium') {
+      aiMove = async () => {
+        const board = GameBoard.getBoard();
+        let moveFound = undefined;
+
+        attemptProhibitWinning = (symbol) => {
+          for (const combo of Gamelogic.winningCombos) {
+            const [a, b, c] = combo;
+
+            // check if possible winnig move is possible
+            if (board[a] === symbol && board[b] === symbol && !board[c]) {
+              return c;
+            } else if (board[a] === symbol && board[c] === symbol && !board[b]) {
+              return b;
+            } else if (board[b] === symbol && board[c] === symbol && !board[a]) {
+              return a;
+            }
+          }
+        };
+
+        // Attempt winning
+        moveFound = attemptProhibitWinning(player2.symbol);
+
+        // Prohibit potential win
+        if (moveFound === undefined) moveFound = attemptProhibitWinning(player1.symbol);
+
+        // Generate a random Move
+        if (moveFound === undefined) {
+          moveFound = indexGenerate();
+        }
+
+        await Gamelogic.sleep(700);
+        const cell = boardEl.querySelector(`.board__cell[data-index="${moveFound}"]`);
+        DomHandler.updateCell(cell);
+        Gamelogic.playMove(moveFound);
       };
     }
   };
@@ -324,7 +367,16 @@ const Gamelogic = (() => {
     firstMove();
   };
 
-  return { playMove, resetGame, checkWinner, sleep, firstMove, nextRound, clickHandler };
+  return {
+    playMove,
+    resetGame,
+    checkWinner,
+    sleep,
+    firstMove,
+    nextRound,
+    clickHandler,
+    winningCombos,
+  };
 })();
 
 boardEl.addEventListener('click', Gamelogic.clickHandler);
