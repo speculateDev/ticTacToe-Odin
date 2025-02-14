@@ -14,6 +14,18 @@
     background-color: $color-primary-light;
     box-shadow: 0 1rem 2rem #000;
     border-radius: 12px;
+
+    @media screen and (max-width: 650px) {
+      min-width: 50rem;
+    }
+
+    @media screen and (max-width: 450px) {
+      min-width: 45rem;
+    }
+
+    @media screen and(max-width: 350px) {
+      // padding: 2rem 0;
+    }
   }
 
   &__label {
@@ -47,6 +59,12 @@
     outline: none;
     font-size: 3rem;
     transition: all 0.5s ease-out;
+
+    @media screen and(max-width: 452px) {
+      gap: 0.5rem;
+      padding: 1rem;
+      font-size: 2.3rem;
+    }
 
     &-active {
       background-color: $color-primary-light-1;

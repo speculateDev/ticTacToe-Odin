@@ -10,6 +10,10 @@
     margin-bottom: 2rem;
     font-family: sans-serif;
     text-align: left;
+
+    @media screen and (max-width: 450px) {
+      gap: 1rem;
+    }
   }
 
   &__score {
@@ -26,6 +30,19 @@
 
     &-active {
       animation: 0.8s ease-out infinite infiniteY;
+    }
+
+    @media screen and (max-width: 550px) {
+      min-width: 13rem;
+      width: 13rem;
+      font-size: 1.6rem;
+    }
+
+    @media screen and(max-width: 350px) {
+      width: 10rem;
+      padding: 1rem;
+      min-width: 10rem;
+      font-size: 1.5rem;
     }
   }
 
@@ -44,6 +61,14 @@
     font-weight: bold;
     width: 100%;
     text-align: center;
+
+    @media screen and (max-width: 550px) {
+      font-size: 6rem;
+    }
+
+    @media screen and (max-width: 400px) {
+      font-size: 5rem;
+    }
   }
 }
 

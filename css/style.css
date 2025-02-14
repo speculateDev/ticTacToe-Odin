@@ -12,6 +12,12 @@ html {
   font-size: 62.5%;
   box-sizing: border-box;
   position: relative; }
+  @media screen and (max-width: 550px) {
+    html {
+      font-size: 52%; } }
+  @media screen and (max-width: 400px) {
+    html {
+      font-size: 48%; } }
 
 body {
   background-color: #222c47;
@@ -36,6 +42,9 @@ body {
     margin-bottom: 2rem;
     font-family: sans-serif;
     text-align: left; }
+    @media screen and (max-width: 450px) {
+      .header__scores-box {
+        gap: 1rem; } }
   .header__score {
     font-family: 'Pixelify Sans', sans-serif;
     font-size: 2.5rem;
@@ -49,6 +58,17 @@ body {
     min-width: 15rem; }
     .header__score-active {
       animation: 0.8s ease-out infinite infiniteY; }
+    @media screen and (max-width: 550px) {
+      .header__score {
+        min-width: 13rem;
+        width: 13rem;
+        font-size: 1.6rem; } }
+    @media screen and (max-width: 350px) {
+      .header__score {
+        width: 10rem;
+        padding: 1rem;
+        min-width: 10rem;
+        font-size: 1.5rem; } }
   .header__symbol {
     flex: 0 0 100%; }
   .header__player {
@@ -60,6 +80,12 @@ body {
     font-weight: bold;
     width: 100%;
     text-align: center; }
+    @media screen and (max-width: 550px) {
+      .header__turn {
+        font-size: 6rem; } }
+    @media screen and (max-width: 400px) {
+      .header__turn {
+        font-size: 5rem; } }
 
 .infiniteY {
   animation: 0.8s linear infinite infinteY; }
@@ -94,10 +120,17 @@ body {
   z-index: 10;
   justify-content: center;
   transition: all 0.2s; }
+  @media screen and (max-width: 650px) {
+    .btn-return {
+      padding: 1rem; } }
   .btn-return .btn__icon {
     fill: #fff;
     height: 4rem;
     width: 4rem; }
+    @media screen and (max-width: 550px) {
+      .btn-return .btn__icon {
+        height: 3rem;
+        width: 3rem; } }
   .btn-return:hover {
     filter: brightness(1.2); }
   .btn-return:active {
@@ -169,6 +202,12 @@ body .btn-return.hidden {
     background-color: #3c4b68;
     box-shadow: 0 1rem 2rem #000;
     border-radius: 12px; }
+    @media screen and (max-width: 650px) {
+      .modal__step {
+        min-width: 50rem; } }
+    @media screen and (max-width: 450px) {
+      .modal__step {
+        min-width: 45rem; } }
   .modal__label {
     display: block;
     margin-bottom: 0.5rem;
@@ -196,6 +235,11 @@ body .btn-return.hidden {
     outline: none;
     font-size: 3rem;
     transition: all 0.5s ease-out; }
+    @media screen and (max-width: 452px) {
+      .modal__btn {
+        gap: 0.5rem;
+        padding: 1rem;
+        font-size: 2.3rem; } }
     .modal__btn-active {
       background-color: #a2aed6;
       color: #222c47; }

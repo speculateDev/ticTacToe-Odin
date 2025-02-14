@@ -18,6 +18,16 @@ html {
   font-size: 62.5%;
   box-sizing: border-box;
   position: relative;
+
+  @media screen and (max-width: 550px) {
+    & {
+      font-size: 52%;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    font-size: 48%;
+  }
 }
 
 body {

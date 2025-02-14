@@ -14,10 +14,19 @@
   justify-content: center;
   transition: all 0.2s;
 
+  @media screen and (max-width: 650px) {
+    padding: 1rem;
+  }
+
   .btn__icon {
     fill: #fff;
     height: 4rem;
     width: 4rem;
+
+    @media screen and(max-width: 550px) {
+      height: 3rem;
+      width: 3rem;
+    }
   }
 
   &:hover {
